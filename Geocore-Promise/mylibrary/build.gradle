@@ -31,3 +31,15 @@ dependencies {
     compile 'org.jdeferred:jdeferred-android-aar:1.2.4'
     compile 'jp.geocore.android:geocore-api-android:0.3.3@aar'
 }
+
+apply plugin: 'maven'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://users/Users/kakkar/Documents/workspace/Library/repository"
+            pom.version = "0.0.1"
+            pom.groupId = "jp.geocore"
+            pom.artifactId = "custom-view"
+        }
+    }
+}
