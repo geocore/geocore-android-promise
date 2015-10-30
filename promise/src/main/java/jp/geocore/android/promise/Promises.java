@@ -111,7 +111,7 @@ public class Promises {
 
         if (geocore == null) {
             // get geocore settings
-            String apiServer, projectId;
+            String apiServer = null, projectId = null;
 
             try {
                 ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(
@@ -119,54 +119,54 @@ public class Promises {
                         PackageManager.GET_META_DATA);
                 apiServer = (String) appInfo.metaData.get("GEOCORE_API_SERVER");
                 projectId = (String) appInfo.metaData.get("GEOCORE_PROJECT_ID");
-
-            } catch (PackageManager.NameNotFoundException e) {
+                if (apiServer == null || projectId == null) {
+                    String errMessage = "Expecting GEOCORE_API_SERVER and GEOCORE_PROJECT_ID to be defined in manifest.";
+                    Log.e(TAG, errMessage);
+                    throw new Exception(errMessage);
+                } else {
+                    geocore = Geocore.getInstance(context, apiServer, projectId);
+                }
+            } catch (Exception e) {
                 // shouldn't happen
                 Log.e(TAG, e.getMessage(), e);
-                return null;
+                deferred.reject(e);
             }
-
-            if (geocore == null) {
-                // initialize geocore
-                geocore = Geocore.getInstance(context, apiServer, projectId);
-            }
-
-            if (apiServer == null || projectId == null) {
-                String errMessage = "Expecting GEOCORE_API_SERVER and GEOCORE_PROJECT_ID to be defined in manifest.";
-                Log.e(TAG, errMessage);
-                return null;
-            }
-            return null;
         }
 
-        //login
-        geocore.login(userId, password, new GeocoreCallback<GeocoreUser>() {
-            @Override
-            public void onComplete(GeocoreUser geocoreUser, Exception e) {
-                if (e != null) {
-                    if (e instanceof GeocoreServerError) {
-                        GeocoreServerError gse = (GeocoreServerError) e;
-                        if ("Auth.0001".equals(gse.getCode())) {
-                            Promises.d("registeration is needed");
-                            Geocore.getInstance().register(userId, password, userId, userId + "@geocore.com", new GeocoreCallback<GeocoreUser>() {
-                                @Override
-                                public void onComplete(GeocoreUser geocoreUser, Exception e) {
-                                    if (e != null)
-                                        deferred.reject(e);
-                                    else
-                                        deferred.resolve(geocoreUser);
-                                }
-                            });
+        if (geocore != null && !deferred.isRejected()) {
+            //login
+            geocore.login(userId, password, new GeocoreCallback<GeocoreUser>() {
+                @Override
+                public void onComplete(GeocoreUser geocoreUser, Exception e) {
+                    if (e != null) {
+                        if (e instanceof GeocoreServerError) {
+                            GeocoreServerError gse = (GeocoreServerError) e;
+                            if ("Auth.0001".equals(gse.getCode())) {
+                                Promises.d("registeration is needed");
+                                Geocore.getInstance().register(userId, password, userId, userId + "@geocore.com", new GeocoreCallback<GeocoreUser>() {
+                                    @Override
+                                    public void onComplete(GeocoreUser geocoreUser, Exception e) {
+                                        if (e != null) {
+                                            deferred.reject(e);
+                                        } else {
+                                            deferred.resolve(geocoreUser);
+                                        }
+                                    }
+                                });
+                            } else {
+                                deferred.reject(e);
+                            }
+                        } else {
+                            deferred.reject(e);
                         }
-                    }
-                    deferred.reject(e);
-                } else
-                    deferred.resolve(geocoreUser);
-            }
-        });
+                    } else
+                        deferred.resolve(geocoreUser);
+                }
+            });
+        }
+
         return deferred.promise();
     }
-
 
     public Promise<List<GeocoreTag>, Exception, Void> tags() {
         final Deferred<List<GeocoreTag>, Exception, Void> deferred = new DeferredObject<>();
