@@ -85,7 +85,7 @@ public class Promises {
 */
     public Promise<GeocoreUser, Exception, Void> login() {
         String userId = "USE-TEST-1-" + Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        String password = new StringBuffer(userId).reverse().toString();
+        String password = new StringBuffer(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)).reverse().toString();
         return login(userId, password);
     }
 
