@@ -1,10 +1,10 @@
 package jp.geocore.android.promise;
 
 
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.provider.Settings;
 import android.util.Log;
 
 import org.jdeferred.Deferred;
@@ -78,6 +78,16 @@ public class Promises {
     // =============================================================================================
     //
     // =============================================================================================
+/*
+    public String getUserId(String projectId) {
+        String userId;
+    }
+*/
+    public Promise<GeocoreUser, Exception, Void> login() {
+        String userId = "USE-TEST-1-" + Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        String password = new StringBuffer(userId).reverse().toString();
+        return login(userId, password);
+    }
 
     public Promise<GeocoreUser, Exception, Void> login(final String userId, final String password) {
         // name <- userId
