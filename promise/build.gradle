@@ -1,4 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+version '0.1.1'
+group 'jp.geocore.android.promise'
+archivesBaseName = 'geocore-android-promise'
 
 android {
     compileSdkVersion 22
@@ -6,7 +12,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 22g
         versionCode 1
         versionName "1.0"
     }
@@ -32,14 +38,12 @@ dependencies {
     compile 'jp.geocore.android:geocore-api-android:0.3.3@aar'
 }
 
-apply plugin: 'maven'
+
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository url: "file://users/Users/kakkar/Documents/workspace/Library/geocore-android-promise/repository"
-            pom.version = "0.0.1"
-            pom.groupId = "jp.geocore.android"
-            pom.artifactId = "promise"
+            repository url: 'file://' + new File(System.getProperty('user.home'), 'git/geocore-android-mvn-repo/releases').absolutePath
         }
     }
 }
+task install(dependsOn: uploadArchives)
