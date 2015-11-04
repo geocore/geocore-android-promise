@@ -11,13 +11,9 @@ import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
 
-import java.util.List;
-
 import jp.geocore.android.Geocore;
 import jp.geocore.android.GeocoreCallback;
 import jp.geocore.android.GeocoreServerError;
-import jp.geocore.android.model.GeocorePlace;
-import jp.geocore.android.model.GeocoreTag;
 import jp.geocore.android.model.GeocoreUser;
 
 /**
@@ -168,40 +164,6 @@ public class Promises {
         return deferred.promise();
     }
 
-    public Promise<List<GeocoreTag>, Exception, Void> tags() {
-        final Deferred<List<GeocoreTag>, Exception, Void> deferred = new DeferredObject<>();
-        Geocore.getInstance().tags.get(new GeocoreCallback<List<GeocoreTag>>() {
-            @Override
-            public void onComplete(List<GeocoreTag> geocoreTags, Exception e) {
-                if (e != null)
-                    deferred.reject(e);
-                else
-                    deferred.resolve(geocoreTags);
-            }
-        });
-        return deferred.promise();
-    }
-
-    /*
-    public Promise<List<GeocoreEvent>, Exception, Void> events() {
-        //Geocore.getInstance().events.g
-    }
-    */
-
-
-    public Promise<List<GeocorePlace>, Exception, Void> places() {
-        final Deferred<List<GeocorePlace>, Exception, Void> deferred = new DeferredObject<>();
-        Geocore.getInstance().places.get(new GeocoreCallback<List<GeocorePlace>>() {
-            @Override
-            public void onComplete(List<GeocorePlace> geocorePlaces, Exception e) {
-                if (e != null)
-                    deferred.reject(e);
-                else
-                    deferred.resolve(geocorePlaces);
-            }
-        });
-        return deferred.promise();
-    }
 
 /**
  * <span class="en">Login to Geocore.</span>
