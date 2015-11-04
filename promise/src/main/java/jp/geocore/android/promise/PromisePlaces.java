@@ -10,6 +10,8 @@ import java.util.List;
 
 import jp.geocore.android.Geocore;
 import jp.geocore.android.GeocoreCallback;
+import jp.geocore.android.GeocoreServicePlaces;
+import jp.geocore.android.GeocoreVoidCallback;
 import jp.geocore.android.model.GeocorePlace;
 import jp.geocore.android.request.GeocoreRequest;
 
@@ -60,6 +62,90 @@ public class PromisePlaces {
                     deferred.reject(e);
                 else
                     deferred.resolve(geocorePlaces);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<GeocorePlace, Exception, Void> place(String id) {
+        final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.get(id, new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<GeocorePlace, Exception, Void> save(GeocorePlace place) {
+        final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.save(place, new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<GeocorePlace, Exception, Void> save(GeocoreServicePlaces.PlaceSaveRequest saveRequest) {
+        final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.save(saveRequest, new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<GeocorePlace, Exception, Void> create(GeocorePlace place) {
+        final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.create(place, new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<GeocorePlace, Exception, Void> create(GeocoreServicePlaces.PlaceCreateRequest createRequest) {
+        final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.create(createRequest, new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        return deferred.promise();
+    }
+
+    public Promise<String, Exception, Void> delete(final String id) {
+        final Deferred<String, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().places.delete(id, new GeocoreVoidCallback() {
+            @Override
+            public void onComplete(Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(id);
             }
         });
         return deferred.promise();
