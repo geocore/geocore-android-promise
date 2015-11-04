@@ -46,17 +46,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PromiseUsers.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PromiseUsers.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.8176166">
+              <caret line="348" column="35" selection-start-line="348" selection-start-column="35" selection-end-line="348" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1150#1450#0" expanded="true" />
-                <element signature="e#1449#1450#0" expanded="true" />
-                <element signature="e#1721#2035#0" expanded="true" />
-                <element signature="e#2034#2035#0" expanded="true" />
+                <element signature="e#953#954#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1291#1292#0" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+                <element signature="e#1537#1837#0" expanded="true" />
+                <element signature="e#1836#1837#0" expanded="true" />
+                <element signature="e#2108#2422#0" expanded="true" />
+                <element signature="e#2421#2422#0" expanded="true" />
+                <element signature="e#2694#3026#0" expanded="true" />
+                <element signature="e#3025#3026#0" expanded="true" />
+                <element signature="e#3468#3802#0" expanded="true" />
+                <element signature="e#3801#3802#0" expanded="true" />
+                <element signature="e#4099#4399#0" expanded="true" />
+                <element signature="e#4398#4399#0" expanded="true" />
+                <element signature="e#4720#5020#0" expanded="true" />
+                <element signature="e#5019#5020#0" expanded="true" />
+                <element signature="e#5288#5588#0" expanded="true" />
+                <element signature="e#5587#5588#0" expanded="true" />
+                <element signature="e#5858#6158#0" expanded="true" />
+                <element signature="e#6157#6158#0" expanded="true" />
+                <element signature="e#6428#6742#0" expanded="true" />
+                <element signature="e#6741#6742#0" expanded="true" />
+                <element signature="e#7042#7404#0" expanded="true" />
+                <element signature="e#7403#7404#0" expanded="true" />
+                <element signature="e#7670#7984#0" expanded="true" />
+                <element signature="e#7983#7984#0" expanded="true" />
+                <element signature="e#8250#8564#0" expanded="true" />
+                <element signature="e#8563#8564#0" expanded="true" />
+                <element signature="e#8866#9214#0" expanded="true" />
+                <element signature="e#9213#9214#0" expanded="true" />
+                <element signature="e#9519#9867#0" expanded="true" />
+                <element signature="e#9866#9867#0" expanded="true" />
+                <element signature="e#10172#10520#0" expanded="true" />
+                <element signature="e#10519#10520#0" expanded="true" />
+                <element signature="e#10823#11171#0" expanded="true" />
+                <element signature="e#11170#11171#0" expanded="true" />
+                <element signature="e#11513#11853#0" expanded="true" />
+                <element signature="e#11852#11853#0" expanded="true" />
+                <element signature="e#12178#12492#0" expanded="true" />
+                <element signature="e#12491#12492#0" expanded="true" />
+                <element signature="e#12851#13165#0" expanded="true" />
+                <element signature="e#13164#13165#0" expanded="true" />
+                <element signature="e#13499#13813#0" expanded="true" />
+                <element signature="e#13812#13813#0" expanded="true" />
+                <element signature="e#14160#14492#0" expanded="true" />
+                <element signature="e#14491#14492#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PromiseItems.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PromiseItems.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60207254">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#689#690#0" expanded="true" />
@@ -1473,13 +1515,13 @@
         <option value="$PROJECT_DIR$/promise/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/Promises.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseTags.java" />
-        <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java" />
         <option value="$PROJECT_DIR$/promise/src/androidTest/java/jp/geocore/android/promise/TestPromiseBase.java" />
         <option value="$PROJECT_DIR$/promise/src/androidTest/java/jp/geocore/android/promise/TestPromisePlaces.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseObjects.java" />
         <option value="$PROJECT_DIR$/promise/build.gradle" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromisePlaces.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java" />
+        <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java" />
       </list>
     </option>
   </component>
@@ -2403,20 +2445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1150#1450#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1721#2035#0" expanded="true" />
-            <element signature="e#2034#2035#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseTags.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2503,8 +2531,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60207254">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#689#690#0" expanded="true" />
@@ -2519,6 +2547,62 @@
             <element signature="e#2761#2762#0" expanded="true" />
             <element signature="e#3168#3425#0" expanded="true" />
             <element signature="e#3424#3425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8176166">
+          <caret line="348" column="35" selection-start-line="348" selection-start-column="35" selection-end-line="348" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1537#1837#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
+            <element signature="e#2108#2422#0" expanded="true" />
+            <element signature="e#2421#2422#0" expanded="true" />
+            <element signature="e#2694#3026#0" expanded="true" />
+            <element signature="e#3025#3026#0" expanded="true" />
+            <element signature="e#3468#3802#0" expanded="true" />
+            <element signature="e#3801#3802#0" expanded="true" />
+            <element signature="e#4099#4399#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+            <element signature="e#4720#5020#0" expanded="true" />
+            <element signature="e#5019#5020#0" expanded="true" />
+            <element signature="e#5288#5588#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#5858#6158#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6428#6742#0" expanded="true" />
+            <element signature="e#6741#6742#0" expanded="true" />
+            <element signature="e#7042#7404#0" expanded="true" />
+            <element signature="e#7403#7404#0" expanded="true" />
+            <element signature="e#7670#7984#0" expanded="true" />
+            <element signature="e#7983#7984#0" expanded="true" />
+            <element signature="e#8250#8564#0" expanded="true" />
+            <element signature="e#8563#8564#0" expanded="true" />
+            <element signature="e#8866#9214#0" expanded="true" />
+            <element signature="e#9213#9214#0" expanded="true" />
+            <element signature="e#9519#9867#0" expanded="true" />
+            <element signature="e#9866#9867#0" expanded="true" />
+            <element signature="e#10172#10520#0" expanded="true" />
+            <element signature="e#10519#10520#0" expanded="true" />
+            <element signature="e#10823#11171#0" expanded="true" />
+            <element signature="e#11170#11171#0" expanded="true" />
+            <element signature="e#11513#11853#0" expanded="true" />
+            <element signature="e#11852#11853#0" expanded="true" />
+            <element signature="e#12178#12492#0" expanded="true" />
+            <element signature="e#12491#12492#0" expanded="true" />
+            <element signature="e#12851#13165#0" expanded="true" />
+            <element signature="e#13164#13165#0" expanded="true" />
+            <element signature="e#13499#13813#0" expanded="true" />
+            <element signature="e#13812#13813#0" expanded="true" />
+            <element signature="e#14160#14492#0" expanded="true" />
+            <element signature="e#14491#14492#0" expanded="true" />
           </folding>
         </state>
       </provider>
