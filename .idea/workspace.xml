@@ -84,45 +84,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/promise/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PromiseItems.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PromiseItems.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.60207254">
+              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1177#1491#0" expanded="true" />
-                <element signature="e#1490#1491#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#1027#1028#0" expanded="true" />
+                <element signature="e#1071#1072#0" expanded="true" />
+                <element signature="e#1273#1573#0" expanded="true" />
+                <element signature="e#1572#1573#0" expanded="true" />
+                <element signature="e#1844#2158#0" expanded="true" />
+                <element signature="e#2157#2158#0" expanded="true" />
+                <element signature="e#2430#2762#0" expanded="true" />
+                <element signature="e#2761#2762#0" expanded="true" />
+                <element signature="e#3168#3425#0" expanded="true" />
+                <element signature="e#3424#3425#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PromisePlaces.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PromisePlaces.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromisePlaces.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63523316">
-              <caret line="135" column="11" selection-start-line="135" selection-start-column="11" selection-end-line="135" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="144" column="16" selection-start-line="144" selection-start-column="16" selection-end-line="147" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#665#666#0" expanded="true" />
@@ -1484,12 +1474,12 @@
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/Promises.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseTags.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java" />
-        <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java" />
         <option value="$PROJECT_DIR$/promise/src/androidTest/java/jp/geocore/android/promise/TestPromiseBase.java" />
         <option value="$PROJECT_DIR$/promise/src/androidTest/java/jp/geocore/android/promise/TestPromisePlaces.java" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseObjects.java" />
         <option value="$PROJECT_DIR$/promise/build.gradle" />
         <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromisePlaces.java" />
+        <option value="$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java" />
       </list>
     </option>
   </component>
@@ -2007,8 +1997,18 @@
           <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1177#1491#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1273#1573#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1844#2158#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2430#2762#0" expanded="true" />
+            <element signature="e#2761#2762#0" expanded="true" />
+            <element signature="e#3168#3425#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2403,50 +2403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/Promises.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="25" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/promise/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-            <element signature="e#1185#1507#0" expanded="true" />
-            <element signature="e#1506#1507#0" expanded="true" />
-            <element signature="e#1774#2082#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2353#2661#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseUsers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2471,22 +2427,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23212436">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/promise/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6300518">
+          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/Promises.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <caret line="156" column="25" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1177#1491#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#1185#1507#0" expanded="true" />
+            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="e#1774#2082#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+            <element signature="e#2353#2661#0" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromisePlaces.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63523316">
-          <caret line="135" column="11" selection-start-line="135" selection-start-column="11" selection-end-line="135" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="16" selection-start-line="144" selection-start-column="16" selection-end-line="147" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#665#666#0" expanded="true" />
@@ -2509,6 +2497,28 @@
             <element signature="e#5066#5067#0" expanded="true" />
             <element signature="e#5313#5570#0" expanded="true" />
             <element signature="e#5569#5570#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/promise/src/main/java/jp/geocore/android/promise/PromiseItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60207254">
+          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1273#1573#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1844#2158#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2430#2762#0" expanded="true" />
+            <element signature="e#2761#2762#0" expanded="true" />
+            <element signature="e#3168#3425#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
           </folding>
         </state>
       </provider>
