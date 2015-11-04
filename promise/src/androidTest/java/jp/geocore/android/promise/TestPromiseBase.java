@@ -24,6 +24,7 @@ public class TestPromiseBase extends AndroidTestCase {
 
     protected Geocore geocore;
     protected Promises promise;
+    protected PromisePlaces places;
 
     protected static String TAG = "geocore promise (test)";
 
@@ -33,7 +34,7 @@ public class TestPromiseBase extends AndroidTestCase {
         super.setUp();
         geocore.getInstance(getTestContext(), GEOCORE_URL, GEOCORE_PROJECT_ID);
         promise = Promises.getInstance(getTestContext());
-
+        places = PromisePlaces.getInstance(getTestContext());
     }
 
     @Override
