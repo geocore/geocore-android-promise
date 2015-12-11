@@ -16,6 +16,7 @@ import jp.geocore.android.model.GeocoreEvent;
 import jp.geocore.android.model.GeocorePlace;
 import jp.geocore.android.model.GeocorePlaceEvent;
 import jp.geocore.android.model.GeocoreRelationship;
+import jp.geocore.android.request.GeocoreRequest;
 
 /**
  * Created by watanabejunta on 2015/11/06.
@@ -58,6 +59,20 @@ public class PromiseEvents {
         } catch (JSONException e) {
             deferred.reject(e);
         }
+        return deferred.promise();
+    }
+
+    public Promise<List<GeocoreEvent>, Exception, Void> events(GeocoreRequest query) {
+        final Deferred<List<GeocoreEvent>, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().events.get(query, new GeocoreCallback<List<GeocoreEvent>>() {
+            @Override
+            public void onComplete(List<GeocoreEvent> geocoreEvents, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocoreEvents);
+            }
+        });
         return deferred.promise();
     }
 
