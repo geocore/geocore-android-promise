@@ -80,8 +80,26 @@ public class Promises {
     }
 */
     public Promise<GeocoreUser, Exception, Void> login() {
-        String userId = "USE-TEST-1-" + Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        ApplicationInfo appInfo = null;
+        String userId = null;
         String password = new StringBuffer(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)).reverse().toString();
+        try {
+            appInfo = context.getPackageManager().getApplicationInfo(
+                    context.getPackageName(),
+                    PackageManager.GET_META_DATA);
+            String projectId = (String) appInfo.metaData.get("GEOCORE_PROJECT_ID");
+            int index = 0;
+            if (projectId != null) {
+                index = projectId.indexOf("PRO-");
+            }
+            index += "PRO-".length();
+            if (projectId != null) {
+                userId = "USE-" + projectId.substring(index) + "-" + Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
         return login(userId, password);
     }
 
