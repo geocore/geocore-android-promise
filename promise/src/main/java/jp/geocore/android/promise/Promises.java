@@ -4,16 +4,27 @@ package jp.geocore.android.promise;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.provider.Settings;
 import android.util.Log;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
 
+import java.io.InputStream;
+import java.net.URI;
+
 import jp.geocore.android.Geocore;
 import jp.geocore.android.GeocoreCallback;
 import jp.geocore.android.GeocoreServerError;
+import jp.geocore.android.model.GeocoreBinaryDataInfo;
 import jp.geocore.android.model.GeocoreUser;
 
 /**
@@ -180,6 +191,59 @@ public class Promises {
         }
 
         return deferred.promise();
+    }
+
+    public static Promise<Bitmap, Exception, Void> image(String objectId, String key) {
+        final Deferred<Bitmap, Exception, Void> deferred = new DeferredObject<>();
+        Geocore.getInstance().getBinaryDataInfo(objectId, key, new GeocoreCallback<GeocoreBinaryDataInfo>() {
+            @Override
+            public void onComplete(final GeocoreBinaryDataInfo geocoreBinaryDataInfo, Exception e) {
+                if (e != null) {
+                    deferred.reject(e);
+                } else {
+                    AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+                        Bitmap bmp;
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            bmp = downloadImage(geocoreBinaryDataInfo.getUrl());
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void result){
+                            deferred.resolve(bmp);
+                        }
+                    };
+                    task.execute();
+
+                }
+            }
+        });
+        return deferred.promise();
+    }
+
+    private static Bitmap downloadImage(String uri) {
+        Log.d(TAG, "downloadImage: uri=" + uri);
+        HttpGet httpGet = new HttpGet();
+        HttpClient httpClient = new DefaultHttpClient();
+        try {
+            httpGet.setURI(new URI(uri));
+            HttpResponse resp = httpClient.execute(httpGet);
+            Log.d(TAG,"HttpResponse: "+resp.getStatusLine().getStatusCode());
+
+            if (resp.getStatusLine().getStatusCode() < 400) {
+                InputStream is = resp.getEntity().getContent();
+                Bitmap bit = BitmapFactory.decodeStream(is);
+                is.close();
+                return bit;
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "downloadImage error");
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 

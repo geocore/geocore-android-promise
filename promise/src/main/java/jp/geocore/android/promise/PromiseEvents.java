@@ -1,7 +1,5 @@
 package jp.geocore.android.promise;
 
-import android.content.Context;
-
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
@@ -23,6 +21,7 @@ import jp.geocore.android.request.GeocoreRequest;
  */
 public class PromiseEvents {
 
+    /*
     private static PromiseEvents instance;
     private Context context;
 
@@ -41,8 +40,9 @@ public class PromiseEvents {
     public static synchronized PromiseEvents getInstance() {
         return PromiseEvents.instance;
     }
+    */
 
-    public Promise<GeocoreEvent, Exception, Void> create(GeocoreEvent event, GeocoreRelationship relationship) {
+    public static Promise<GeocoreEvent, Exception, Void> create(GeocoreEvent event, GeocoreRelationship relationship) {
         final Deferred<GeocoreEvent, Exception, Void> deferred = new DeferredObject<>();
         try {
             Geocore.getInstance().events.create(event, relationship, new GeocoreCallback<GeocoreEvent>() {
@@ -62,7 +62,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<List<GeocoreEvent>, Exception, Void> events(GeocoreRequest query) {
+    public static Promise<List<GeocoreEvent>, Exception, Void> events(GeocoreRequest query) {
         final Deferred<List<GeocoreEvent>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().events.get(query, new GeocoreCallback<List<GeocoreEvent>>() {
             @Override
@@ -76,7 +76,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<GeocoreEvent, Exception, Void> save(GeocoreEvent event) {
+    public static Promise<GeocoreEvent, Exception, Void> save(GeocoreEvent event) {
         final Deferred<jp.geocore.android.model.GeocoreEvent, java.lang.Exception, java.lang.Void> deferred = new DeferredObject<>();
         try {
             Geocore.getInstance().events.save(event, new GeocoreCallback<jp.geocore.android.model.GeocoreEvent>() {
@@ -96,7 +96,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<GeocoreEvent, Exception, Void> delete(GeocoreEvent event) {
+    public static Promise<GeocoreEvent, Exception, Void> delete(GeocoreEvent event) {
         final Deferred<jp.geocore.android.model.GeocoreEvent, java.lang.Exception, java.lang.Void> deferred = new DeferredObject<>();
         Geocore.getInstance().events.delete(event, new GeocoreCallback<jp.geocore.android.model.GeocoreEvent>() {
             @Override
@@ -110,7 +110,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<List<GeocorePlaceEvent>, Exception, Void> connectWithPlace(GeocoreEvent event,
+    public static Promise<List<GeocorePlaceEvent>, Exception, Void> connectWithPlace(GeocoreEvent event,
                                                                          GeocorePlace place) {
         final Deferred<List<GeocorePlaceEvent>, Exception, Void> deferred = new DeferredObject<>();
         try {
@@ -131,7 +131,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<List<GeocorePlaceEvent>, Exception, Void> getPlaces(GeocoreEvent event) {
+    public static Promise<List<GeocorePlaceEvent>, Exception, Void> getPlaces(GeocoreEvent event) {
         final Deferred<List<GeocorePlaceEvent>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().events.getPlaces(event, new GeocoreCallback<List<GeocorePlaceEvent>>() {
             @Override
@@ -145,7 +145,7 @@ public class PromiseEvents {
         return deferred.promise();
     }
 
-    public Promise<List<GeocorePlaceEvent>, Exception, Void> getPlaces(String id) {
+    public static Promise<List<GeocorePlaceEvent>, Exception, Void> getPlaces(String id) {
         final Deferred<List<GeocorePlaceEvent>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().events.getPlaces(id, new GeocoreCallback<List<GeocorePlaceEvent>>() {
             @Override
