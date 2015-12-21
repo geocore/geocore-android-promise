@@ -1,7 +1,5 @@
 package jp.geocore.android.promise;
 
-import android.content.Context;
-
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
@@ -20,26 +18,7 @@ import jp.geocore.android.request.GeocoreRequest;
  */
 public class PromisePlaces {
 
-    private static PromisePlaces instance;
-    private Context context;
-
-    private PromisePlaces(Context context) {
-        this.context = context;
-    }
-
-
-    public static synchronized PromisePlaces getInstance(Context context) {
-        if (PromisePlaces.instance == null) {
-            PromisePlaces.instance = new PromisePlaces(context);
-        }
-        return PromisePlaces.instance;
-    }
-
-    public static synchronized PromisePlaces getInstance() {
-        return PromisePlaces.instance;
-    }
-
-    public Promise<List<GeocorePlace>, Exception, Void> places() {
+    public static Promise<List<GeocorePlace>, Exception, Void> places() {
         final Deferred<List<GeocorePlace>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.get(new GeocoreCallback<List<GeocorePlace>>() {
             @Override
@@ -53,7 +32,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<List<GeocorePlace>, Exception, Void> places(GeocoreRequest query) {
+    public static Promise<List<GeocorePlace>, Exception, Void> places(GeocoreRequest query) {
         final Deferred<List<GeocorePlace>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.get(query, new GeocoreCallback<List<GeocorePlace>>() {
             @Override
@@ -67,7 +46,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<GeocorePlace, Exception, Void> place(String id) {
+    public static Promise<GeocorePlace, Exception, Void> place(String id) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.get(id, new GeocoreCallback<GeocorePlace>() {
             @Override
@@ -81,7 +60,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<GeocorePlace, Exception, Void> save(GeocorePlace place) {
+    public static Promise<GeocorePlace, Exception, Void> save(GeocorePlace place) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.save(place, new GeocoreCallback<GeocorePlace>() {
             @Override
@@ -95,7 +74,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<GeocorePlace, Exception, Void> save(GeocoreServicePlaces.PlaceSaveRequest saveRequest) {
+    public static Promise<GeocorePlace, Exception, Void> save(GeocoreServicePlaces.PlaceSaveRequest saveRequest) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.save(saveRequest, new GeocoreCallback<GeocorePlace>() {
             @Override
@@ -109,7 +88,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<GeocorePlace, Exception, Void> create(GeocorePlace place) {
+    public static Promise<GeocorePlace, Exception, Void> create(GeocorePlace place) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.create(place, new GeocoreCallback<GeocorePlace>() {
             @Override
@@ -123,7 +102,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<GeocorePlace, Exception, Void> create(GeocoreServicePlaces.PlaceCreateRequest createRequest) {
+    public static Promise<GeocorePlace, Exception, Void> create(GeocoreServicePlaces.PlaceCreateRequest createRequest) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.create(createRequest, new GeocoreCallback<GeocorePlace>() {
             @Override
@@ -137,7 +116,7 @@ public class PromisePlaces {
         return deferred.promise();
     }
 
-    public Promise<String, Exception, Void> delete(final String id) {
+    public static Promise<String, Exception, Void> delete(final String id) {
         final Deferred<String, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().places.delete(id, new GeocoreVoidCallback() {
             @Override
