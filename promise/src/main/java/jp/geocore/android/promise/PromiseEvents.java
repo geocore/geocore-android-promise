@@ -21,27 +21,6 @@ import jp.geocore.android.request.GeocoreRequest;
  */
 public class PromiseEvents {
 
-    /*
-    private static PromiseEvents instance;
-    private Context context;
-
-    private PromiseEvents(Context context) {
-        this.context = context;
-    }
-
-
-    public static synchronized PromiseEvents getInstance(Context context) {
-        if (PromiseEvents.instance == null) {
-            PromiseEvents.instance = new PromiseEvents(context);
-        }
-        return PromiseEvents.instance;
-    }
-
-    public static synchronized PromiseEvents getInstance() {
-        return PromiseEvents.instance;
-    }
-    */
-
     public static Promise<GeocoreEvent, Exception, Void> create(GeocoreEvent event, GeocoreRelationship relationship) {
         final Deferred<GeocoreEvent, Exception, Void> deferred = new DeferredObject<>();
         try {

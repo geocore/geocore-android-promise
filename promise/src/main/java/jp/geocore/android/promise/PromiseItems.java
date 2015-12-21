@@ -1,7 +1,5 @@
 package jp.geocore.android.promise;
 
-import android.content.Context;
-
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
@@ -21,26 +19,7 @@ import jp.geocore.android.request.GeocoreRequest;
  */
 public class PromiseItems {
 
-    private static PromiseItems instance;
-    private Context context;
-
-    private PromiseItems(Context context) {
-        this.context = context;
-    }
-
-
-    public static synchronized PromiseItems getInstance(Context context) {
-        if (PromiseItems.instance == null) {
-            PromiseItems.instance = new PromiseItems(context);
-        }
-        return PromiseItems.instance;
-    }
-
-    public static synchronized PromiseItems getInstance() {
-        return PromiseItems.instance;
-    }
-
-    public Promise<GeocoreItem, Exception, Void> item(String id) {
+    public static Promise<GeocoreItem, Exception, Void> item(String id) {
         final Deferred<GeocoreItem, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().items.get(id, new GeocoreCallback<GeocoreItem>() {
             @Override
@@ -54,7 +33,7 @@ public class PromiseItems {
         return deferred.promise();
     }
 
-    public Promise<List<GeocoreItem>, Exception, Void> items(GeocoreRequest query) {
+    public static Promise<List<GeocoreItem>, Exception, Void> items(GeocoreRequest query) {
         final Deferred<List<GeocoreItem>, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().items.get(query, new GeocoreCallback<List<GeocoreItem>>() {
             @Override
@@ -68,7 +47,7 @@ public class PromiseItems {
         return deferred.promise();
     }
 
-    public Promise<GeocoreItem, Exception, Void> save(GeocoreItem item) {
+    public static Promise<GeocoreItem, Exception, Void> save(GeocoreItem item) {
         final Deferred<GeocoreItem, Exception, Void> deferred = new DeferredObject<>();
         try {
             Geocore.getInstance().items.save(item, new GeocoreCallback<GeocoreItem>() {
@@ -88,7 +67,7 @@ public class PromiseItems {
         return deferred.promise();
     }
 
-    public Promise<String, Exception, Void> delete(final String id) {
+    public static Promise<String, Exception, Void> delete(final String id) {
         final Deferred<String, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().items.delete(id, new GeocoreVoidCallback() {
             @Override
