@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-version '0.1.11'
+version '0.1.12'
 group 'jp.geocore.android.promise'
 archivesBaseName = 'geocore-android-promise'
 
@@ -36,6 +36,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'org.jdeferred:jdeferred-android-aar:1.2.4'
     compile 'jp.geocore.android:geocore-api-android:0.3.5@aar'
+    provided 'org.projectlombok:lombok:1.12.2'
 }
 
 
