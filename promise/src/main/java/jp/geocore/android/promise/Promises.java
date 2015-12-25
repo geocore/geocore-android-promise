@@ -26,6 +26,7 @@ import jp.geocore.android.GeocoreCallback;
 import jp.geocore.android.GeocoreServerError;
 import jp.geocore.android.model.GeocoreBinaryDataInfo;
 import jp.geocore.android.model.GeocoreUser;
+import lombok.Data;
 
 /**
  * Created by kakkar on 2015/08/19.
@@ -193,8 +194,23 @@ public class Promises {
         return deferred.promise();
     }
 
-    public static Promise<Bitmap, Exception, Void> image(String objectId, String key) {
-        final Deferred<Bitmap, Exception, Void> deferred = new DeferredObject<>();
+    @Data
+    static class ImageInfo {
+        Bitmap bitmap;
+        String url;
+        String id;
+        String key;
+
+        public ImageInfo (Bitmap bitmap, String url, String id, String key) {
+            this.bitmap = bitmap;
+            this.url = url;
+            this.id = id;
+            this.key = key;
+        }
+    }
+
+    public static Promise<ImageInfo, Exception, Void> image(final String objectId, final String key) {
+        final Deferred<ImageInfo, Exception, Void> deferred = new DeferredObject<>();
         Geocore.getInstance().getBinaryDataInfo(objectId, key, new GeocoreCallback<GeocoreBinaryDataInfo>() {
             @Override
             public void onComplete(final GeocoreBinaryDataInfo geocoreBinaryDataInfo, Exception e) {
@@ -212,7 +228,8 @@ public class Promises {
 
                         @Override
                         protected void onPostExecute(Void result){
-                            deferred.resolve(bmp);
+                            ImageInfo imageInfo = new ImageInfo(bmp, geocoreBinaryDataInfo.getUrl(), objectId, key);
+                            deferred.resolve(imageInfo);
                         }
                     };
                     task.execute();
