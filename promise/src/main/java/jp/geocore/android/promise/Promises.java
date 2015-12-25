@@ -195,7 +195,7 @@ public class Promises {
     }
 
     @Data
-    static class ImageInfo {
+    public static class ImageInfo {
         Bitmap bitmap;
         String url;
         String id;
