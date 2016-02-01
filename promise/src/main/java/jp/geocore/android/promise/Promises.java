@@ -217,7 +217,7 @@ public class Promises {
                 if (e != null) {
                     deferred.reject(e);
                 } else {
-                    AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+                    new AsyncTask<Void, Void, Void>(){
                         Bitmap bmp;
 
                         @Override
@@ -231,8 +231,7 @@ public class Promises {
                             ImageInfo imageInfo = new ImageInfo(bmp, geocoreBinaryDataInfo.getUrl(), objectId, key);
                             deferred.resolve(imageInfo);
                         }
-                    };
-                    task.execute().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
                 }
             }
