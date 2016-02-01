@@ -232,7 +232,7 @@ public class Promises {
                             deferred.resolve(imageInfo);
                         }
                     };
-                    task.execute();
+                    task.execute().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
                 }
             }
