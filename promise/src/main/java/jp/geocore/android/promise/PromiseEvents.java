@@ -13,7 +13,6 @@ import jp.geocore.android.GeocoreCallback;
 import jp.geocore.android.model.GeocoreEvent;
 import jp.geocore.android.model.GeocorePlace;
 import jp.geocore.android.model.GeocorePlaceEvent;
-import jp.geocore.android.model.GeocoreRelationship;
 import jp.geocore.android.request.GeocoreRequest;
 
 /**
@@ -21,6 +20,7 @@ import jp.geocore.android.request.GeocoreRequest;
  */
 public class PromiseEvents {
 
+    /*
     public static Promise<GeocoreEvent, Exception, Void> create(GeocoreEvent event, GeocoreRelationship relationship) {
         final Deferred<GeocoreEvent, Exception, Void> deferred = new DeferredObject<>();
         try {
@@ -40,10 +40,11 @@ public class PromiseEvents {
         }
         return deferred.promise();
     }
+    */
 
     public static Promise<List<GeocoreEvent>, Exception, Void> events(GeocoreRequest query) {
         final Deferred<List<GeocoreEvent>, Exception, Void> deferred = new DeferredObject<>();
-        Geocore.getInstance().events.get(query, new GeocoreCallback<List<GeocoreEvent>>() {
+        GeocoreEvent.list(query, new GeocoreCallback<List<GeocoreEvent>>() {
             @Override
             public void onComplete(List<GeocoreEvent> geocoreEvents, Exception e) {
                 if (e != null)

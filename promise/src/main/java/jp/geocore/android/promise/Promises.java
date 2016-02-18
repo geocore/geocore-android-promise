@@ -10,16 +10,13 @@ import android.os.AsyncTask;
 import android.provider.Settings;
 import android.util.Log;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;
 
 import java.io.InputStream;
-import java.net.URI;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import jp.geocore.android.Geocore;
 import jp.geocore.android.GeocoreCallback;
@@ -217,18 +214,15 @@ public class Promises {
                 if (e != null) {
                     deferred.reject(e);
                 } else {
-                    new AsyncTask<Void, Void, Void>(){
-                        Bitmap bmp;
-
+                    new AsyncTask<Void, Void, Bitmap>(){
                         @Override
-                        protected Void doInBackground(Void... params) {
-                            bmp = downloadImage(geocoreBinaryDataInfo.getUrl());
-                            return null;
+                        protected Bitmap doInBackground(Void... params) {
+                            return downloadImage(geocoreBinaryDataInfo.getUrl());
                         }
 
                         @Override
-                        protected void onPostExecute(Void result){
-                            ImageInfo imageInfo = new ImageInfo(bmp, geocoreBinaryDataInfo.getUrl(), objectId, key);
+                        protected void onPostExecute(Bitmap bitmap){
+                            ImageInfo imageInfo = new ImageInfo(bitmap, geocoreBinaryDataInfo.getUrl(), objectId, key);
                             deferred.resolve(imageInfo);
                         }
                     }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -239,27 +233,66 @@ public class Promises {
         return deferred.promise();
     }
 
-    private static Bitmap downloadImage(String uri) {
-        Log.d(TAG, "downloadImage: uri=" + uri);
-        HttpGet httpGet = new HttpGet();
-        HttpClient httpClient = new DefaultHttpClient();
-        try {
-            httpGet.setURI(new URI(uri));
-            HttpResponse resp = httpClient.execute(httpGet);
-            Log.d(TAG,"HttpResponse: "+resp.getStatusLine().getStatusCode());
+    /**
+     * 文字列の置換を行う
+     *
+     * @param input       処理の対象の文字列
+     * @param pattern     置換前の文字列
+     * @param replacement 置換後の文字列
+     * @return 置換処理後の文字列
+     */
+    static public String substitute(String input, String pattern, String replacement) {
+        // 置換対象文字列が存在する場所を取得
+        int index = input.indexOf(pattern);
 
-            if (resp.getStatusLine().getStatusCode() < 400) {
-                InputStream is = resp.getEntity().getContent();
-                Bitmap bit = BitmapFactory.decodeStream(is);
-                is.close();
-                return bit;
-            }
-        } catch (Exception e) {
-            Log.d(TAG, "downloadImage error");
-            e.printStackTrace();
+        // 置換対象文字列が存在しなければ終了
+        if (index == -1) {
+            return input;
         }
 
-        return null;
+        // 処理を行うための StringBuffer
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append(input.substring(0, index) + replacement);
+
+        if (index + pattern.length() < input.length()) {
+            // 残りの文字列を再帰的に置換
+            String rest = input.substring(index + pattern.length(), input.length());
+            buffer.append(substitute(rest, pattern, replacement));
+        }
+        return buffer.toString();
+    }
+
+    private static Bitmap downloadImage(String uri) {
+        uri = substitute(uri, "https", "http");
+        Bitmap bitmap = null;
+        try {
+            URL url = new URL(uri);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setReadTimeout(10000);
+            urlConnection.setConnectTimeout(20000);
+            urlConnection.setRequestMethod("GET");
+            // リダイレクトを自動で許可しない設定
+            urlConnection.setInstanceFollowRedirects(false);
+            urlConnection.connect();
+
+            int resp = urlConnection.getResponseCode();
+
+            switch (resp) {
+                case HttpURLConnection.HTTP_OK:
+                    InputStream is = urlConnection.getInputStream();
+                    bitmap = BitmapFactory.decodeStream(is);
+                    is.close();
+                    break;
+                case HttpURLConnection.HTTP_UNAUTHORIZED:
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, e.toString());
+        }
+        return bitmap;
     }
 
 
