@@ -11,6 +11,7 @@ import jp.geocore.android.GeocoreCallback;
 import jp.geocore.android.GeocoreServicePlaces;
 import jp.geocore.android.GeocoreVoidCallback;
 import jp.geocore.android.model.GeocorePlace;
+import jp.geocore.android.request.GeocorePlaceQueryRequest;
 import jp.geocore.android.request.GeocoreRequest;
 
 /**
@@ -34,7 +35,7 @@ public class PromisePlaces {
 
     public static Promise<List<GeocorePlace>, Exception, Void> places(GeocoreRequest query) {
         final Deferred<List<GeocorePlace>, Exception, Void> deferred = new DeferredObject<>();
-        Geocore.getInstance().places.get(query, new GeocoreCallback<List<GeocorePlace>>() {
+        GeocorePlace.list(query, new GeocoreCallback<List<GeocorePlace>>() {
             @Override
             public void onComplete(List<GeocorePlace> geocorePlaces, Exception e) {
                 if (e != null)
@@ -48,6 +49,16 @@ public class PromisePlaces {
 
     public static Promise<GeocorePlace, Exception, Void> place(String id) {
         final Deferred<GeocorePlace, Exception, Void> deferred = new DeferredObject<>();
+        GeocorePlace.get(new GeocorePlaceQueryRequest().withId(id), new GeocoreCallback<GeocorePlace>() {
+            @Override
+            public void onComplete(GeocorePlace geocorePlace, Exception e) {
+                if (e != null)
+                    deferred.reject(e);
+                else
+                    deferred.resolve(geocorePlace);
+            }
+        });
+        /*
         Geocore.getInstance().places.get(id, new GeocoreCallback<GeocorePlace>() {
             @Override
             public void onComplete(GeocorePlace geocorePlace, Exception e) {
@@ -57,6 +68,7 @@ public class PromisePlaces {
                     deferred.resolve(geocorePlace);
             }
         });
+        */
         return deferred.promise();
     }
 

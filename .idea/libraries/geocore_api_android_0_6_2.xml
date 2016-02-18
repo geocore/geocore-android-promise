@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="geocore-api-android-0.6.2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/promise/build/intermediates/exploded-aar/jp.geocore.android/geocore-api-android/0.6.2/res" />
+      <root url="jar://$PROJECT_DIR$/promise/build/intermediates/exploded-aar/jp.geocore.android/geocore-api-android/0.6.2/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
